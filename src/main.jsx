@@ -10,7 +10,7 @@ import { SoundProvider } from './audio/SoundContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/kids">
       <ThemeProvider>
         <SoundProvider>
           <LocaleProvider>

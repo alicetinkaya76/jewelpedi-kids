@@ -14,6 +14,8 @@ import path from 'node:path';
  */
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/kids/',
+
   plugins: [
     react(),
     VitePWA({
@@ -30,14 +32,14 @@ export default defineConfig(({ mode }) => ({
         background_color: '#fff8ec',
         display: 'standalone',
         orientation: 'portrait-primary',
-        start_url: '/',
-        scope: '/',
+        start_url: '/kids/',
+        scope: '/kids/',
         lang: 'tr',
         dir: 'ltr',
         categories: ['education', 'kids', 'science'],
         icons: [
           {
-            src: '/favicon.svg',
+            src: '/kids/favicon.svg',
             sizes: 'any',
             type: 'image/svg+xml',
             purpose: 'any maskable',
@@ -46,6 +48,9 @@ export default defineConfig(({ mode }) => ({
       },
 
       workbox: {
+        // Subpath: kids deep links resolve to kids index
+        navigateFallback: '/kids/index.html',
+
         // Pre-cache all built assets + the index html
         // Faz 6-D: .geojson eklendi — harita için offline çalışma
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2,geojson}'],
