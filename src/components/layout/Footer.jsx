@@ -1,10 +1,22 @@
 import { Link } from 'react-router-dom';
 import { useLocale } from '../../context/LocaleContext.jsx';
-import { Github, Heart, Shield } from 'lucide-react';
+import { Github, Heart, Shield, BookOpen } from 'lucide-react';
+
+// Cross-link to main encyclopedia. Dev: silveratlas runs on port 3000.
+// Prod: served from same domain root (silveratlas.com/).
+const MAIN_SITE_URL = import.meta.env.DEV
+  ? 'http://localhost:3000/silveratlas/'
+  : '/';
+
 
 export default function Footer() {
   const { t, locale } = useLocale();
   const privacyLabel = { tr: 'Gizlilik', en: 'Privacy', ar: 'الخصوصية' }[locale];
+  const mainSiteLabel = {
+    tr: 'Ana Ansiklopedi',
+    en: 'Main Encyclopedia',
+    ar: 'الموسوعة الرئيسية',
+  }[locale];
 
   return (
     <footer className="mt-16 border-t border-ink/5 bg-gradient-to-b from-transparent to-parchment/40">
@@ -14,6 +26,14 @@ export default function Footer() {
           <span>{t('footer.built')}</span>
         </p>
         <div className="flex items-center gap-4 flex-wrap justify-center">
+          <a
+            href={MAIN_SITE_URL}
+            className="inline-flex items-center gap-1.5 text-ink/70 hover:text-ink font-semibold"
+          >
+            <BookOpen size={16} />
+            {mainSiteLabel}
+          </a>
+          <span className="text-ink/40">·</span>
           <Link
             to="/privacy"
             className="inline-flex items-center gap-1.5 text-ink/70 hover:text-ink font-semibold"
