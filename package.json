@@ -1,0 +1,61 @@
+{
+  "name": "jewelpedi-kids",
+  "private": false,
+  "version": "1.1.0",
+  "type": "module",
+  "description": "Online Mücevher Bilim Merkezi — bir sanal müze. Çocuklar için altın, gümüş, pırlanta, renkli taşlar, platin, takı ve Türk zanaatını keşfeden açık kaynak interaktif eğitim platformu.",
+  "keywords": [
+    "education",
+    "kids",
+    "museum",
+    "jewelry",
+    "gemology",
+    "react",
+    "vite",
+    "turkish",
+    "i18n",
+    "open-source"
+  ],
+  "author": "JewelPedi contributors",
+  "license": "MIT",
+  "homepage": "https://kids.jewelpedi.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jewelpedi/jewelpedi-kids"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:crossrefs": "node scripts/build-crossrefs.js",
+    "build:geo": "node scripts/convert-world-topo.mjs && node scripts/extract-turkey-50m.mjs",
+    "prebuild": "node scripts/build-crossrefs.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "topojson-client": "^3.1.0",
+    "vite": "^5.4.11",
+    "vite-plugin-pwa": "^0.21.1",
+    "world-atlas": "^2.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
