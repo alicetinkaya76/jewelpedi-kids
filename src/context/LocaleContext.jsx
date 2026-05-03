@@ -4,9 +4,13 @@ import { translate, interpolate, availableLocales, localeMeta } from '../i18n/in
 const LocaleContext = createContext(null);
 
 function detectInitial() {
-  if (typeof navigator === 'undefined') return 'tr';
-  const nav = (navigator.language || 'tr').slice(0, 2).toLowerCase();
-  return availableLocales.includes(nav) ? nav : 'tr';
+  // Default locale is always TR (Turkish jewelry/craft heritage focus,
+  // sponsor in Turkey). Users can switch to EN/AR via the locale switcher
+  // in the header. Browser language is intentionally not detected because:
+  //  - Developers often run English-locale browsers
+  //  - VPN/proxy users get misclassified
+  //  - The locale switcher is one tap away
+  return 'tr';
 }
 
 export function LocaleProvider({ children }) {
