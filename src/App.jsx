@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
 import Layout from './components/layout/Layout.jsx';
 import LoadingFallback from './components/common/LoadingFallback.jsx';
 import ErrorBoundary from './components/common/ErrorBoundary.jsx';
@@ -38,6 +38,19 @@ function L({ children }) {
  * Suspense lazy-loaded page'lerin fetch süresinde skeleton gösterir.
  */
 export default function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ── ?p handler — SPA fallback redirect from 404.html ──
+  // GitHub Pages hits unknown deep links (/silveratlas/kids/halls etc.) with 404.html,
+  // which redirects to /silveratlas/kids/?p=/halls. Here we read p and navigate.
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const redirectPath = params.get('p');
+    if (redirectPath) {
+      navigate(redirectPath, { replace: true });
+    }
+  }, []); // Run once on mount only
   return (
     <ErrorBoundary>
       <Routes>
