@@ -32,14 +32,14 @@ export default defineConfig(({ mode }) => ({
         background_color: '#fff8ec',
         display: 'standalone',
         orientation: 'portrait-primary',
-        start_url: '/kids/',
-        scope: '/kids/',
+        start_url: '/silveratlas/kids/',
+        scope: '/silveratlas/kids/',
         lang: 'tr',
         dir: 'ltr',
         categories: ['education', 'kids', 'science'],
         icons: [
           {
-            src: '/kids/favicon.svg',
+            src: '/silveratlas/kids/favicon.svg',
             sizes: 'any',
             type: 'image/svg+xml',
             purpose: 'any maskable',
@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => ({
 
       workbox: {
         // Subpath: kids deep links resolve to kids index
-        navigateFallback: '/kids/index.html',
+        navigateFallback: '/silveratlas/kids/index.html',
 
         // Pre-cache all built assets + the index html
         // Faz 6-D: .geojson eklendi — harita için offline çalışma
