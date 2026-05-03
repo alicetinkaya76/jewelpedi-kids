@@ -6,7 +6,7 @@ import { Github, Heart, Shield, BookOpen } from 'lucide-react';
 // Prod: served from same domain root (silveratlas.com/).
 const MAIN_SITE_URL = import.meta.env.DEV
   ? 'http://localhost:3000/silveratlas/'
-  : '/';
+  : '../';
 
 
 export default function Footer() {
