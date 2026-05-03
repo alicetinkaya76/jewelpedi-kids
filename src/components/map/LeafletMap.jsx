@@ -21,8 +21,8 @@ import { KIND_COLORS } from '../../utils/geoKinds.js';
  *   minZoom       default 2
  *   maxZoom       default 7
  *   maxBounds     [[-85, -180], [85, 180]]  — panning sınırı
- *   countriesUrl  default '/geo/countries-110m.geojson'
- *   turkeyUrl     default '/geo/turkey-50m.geojson'  (opsiyonel, lazy)
+ *   countriesUrl  default `${BASE_URL}geo/countries-110m.geojson`
+ *   turkeyUrl     default `${BASE_URL}geo/turkey-50m.geojson`  (opsiyonel, lazy)
  *   points        [{id, lat, lng, kind, ...}]  — marker listesi
  *   activeId      aktif marker ID'si (popup açık olan)
  *   onPointSelect (point) => void  — marker tıklandığında
@@ -47,8 +47,8 @@ const LeafletMap = forwardRef(function LeafletMap(
     minZoom = 2,
     maxZoom = 7,
     maxBounds = [[-85, -180], [85, 180]],
-    countriesUrl = '/geo/countries-110m.geojson',
-    turkeyUrl = '/geo/turkey-50m.geojson',
+    countriesUrl = `${import.meta.env.BASE_URL}geo/countries-110m.geojson`,
+    turkeyUrl = `${import.meta.env.BASE_URL}geo/turkey-50m.geojson`,
     points = [],
     activeId = null,
     onPointSelect,
