@@ -88,6 +88,19 @@
       }
     }
     </script>
+
+    <!-- Google Analytics 4 (gtag.js) - child-safe config (COPPA/GDPR Art.8) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KN4R4YK33K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KN4R4YK33K', {
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
